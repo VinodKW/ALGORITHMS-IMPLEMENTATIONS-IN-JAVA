@@ -6,7 +6,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Filewriter{
+public class MST{
 	
 	static class set{
 		int parent,rank;
