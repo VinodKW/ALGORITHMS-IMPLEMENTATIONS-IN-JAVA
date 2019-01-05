@@ -8,20 +8,23 @@ import java.util.regex.*;
 
 public class MST{
 	
-	static class set{
+	static class set
+	{
 		int parent,rank;
 	}
 	
 	//find set which represents vertex i
-	static int find(set subsets[],int i ){
+	static int find(set subsets[],int i )
+	{
 		if(subsets[i].parent==i)
-			return i;
+		return i;
 		return find(subsets,subsets[i].parent);
 	}
 	
 	//function for adding  edges whose vertex belongs 
 	//to the different tree ie. UNION
-	static void UNION(set subsets[],int x,int y){
+	static void UNION(set subsets[],int x,int y)
+	{
 		int xroot=find(subsets,x);
 		int yroot=find(subsets,y);
 
@@ -29,13 +32,15 @@ public class MST{
 			subsets[yroot].parent=xroot;
 		else if(subsets[xroot].rank<subsets[yroot].rank)
 			subsets[xroot].parent=yroot;
-		else{
+		else
+		{
 			subsets[yroot].parent=xroot;
 			subsets[xroot].rank++;
 		}
 	}
 	
-	static int mst(int n, Integer[][] edges) {
+	static int mst(int n, Integer[][] edges) 
+	{
 		set subsets[]=new set[n];
 
 		//Create forest of vrtices that is separate tree for each vertex
@@ -48,13 +53,15 @@ public class MST{
 
 		int e=0,i=0,count=0;
 		//Create graph having exactly vertex-1 ie. n-1 edges
-		while(e<n-1){
+		while(e<n-1)
+		{
 			//find set from which current vertex belongs
 			int x=find(subsets,edges[i][0]-1);  
 			//find set from which current vertex belongs
 			int y=find(subsets,edges[i][1]-1); 
 
-			if(x!=y){
+			if(x!=y)
+			{
 				count+=edges[i][2];  
 				e++;
 				// union the two vertex in the same tree 
@@ -76,10 +83,12 @@ public class MST{
 		int n = Integer.parseInt(a[0]);   //number of nodes
 		int m = Integer.parseInt(a[1]);  //number of edges
 		Integer [][]edges = new Integer[m][3];
-		for(int edges_i = 0; ((edges_i < m) && (s!=null)); edges_i++ ){ 
+		for(int edges_i = 0; ((edges_i < m) && (s!=null)); edges_i++ )
+		{ 
                  s = fw.readLine();
                  a = s.split(" ");
-			for(int edges_j = 0; edges_j < 3; edges_j++){
+			for(int edges_j = 0; edges_j < 3; edges_j++)
+			{
                 
 				edges[edges_i][edges_j] =Integer.parseInt(a[edges_j]) ;
 
