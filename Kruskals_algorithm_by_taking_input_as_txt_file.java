@@ -68,8 +68,8 @@ public class MST{
 
 	public static void main(String[] args) throws IOException
 	{
-        FileReader fr = new FileReader("G:\\edges.txt");
-        BufferedReader fw = new BufferedReader(fr);
+        
+        BufferedReader fw = new BufferedReader(new FileReader("G:\\edges.txt"));
         String s = fw.readLine();
         String[] a = s.split(" ");
 		
