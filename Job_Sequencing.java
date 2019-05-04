@@ -18,7 +18,7 @@ class Jobsequencing {
 
 			if(deadline > maxdeadline) {
 				maxdeadline = deadline;
-            }
+                        }
 
 			j[i] = new Jobs(jobnumber,profit,deadline);
 		}
